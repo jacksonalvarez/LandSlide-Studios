@@ -1,0 +1,199 @@
+'use client';
+
+import Link from 'next/link';
+import { 
+  ArrowRight, 
+  CheckCircle, 
+  Code, 
+  DollarSign, 
+  Gamepad2, 
+  MapPin, 
+  Palette, 
+  Settings, 
+  Users, 
+  Clock,
+  Heart
+} from 'lucide-react';
+import { WindowsXPPage, XPHeading, XPCard, XPButton } from '@/components/WindowsXPPage';
+
+export default function CareersPage() {
+  const contractorRoles = [
+    {
+      title: "Unity Developer",
+      type: "Contract",
+      location: "Remote",
+      description: "Looking for experienced Unity developers to join our team for exciting game projects. Work on horror games, multiplayer experiences, and innovative interactive media.",
+      skills: ["Unity 3D", "C#", "Game Development", "Version Control", "Performance Optimization"],
+      icon: Code
+    },
+    {
+      title: "3D Artist",
+      type: "Contract", 
+      location: "Remote",
+      description: "Seeking talented 3D artists to create stunning environments, characters, and props for our upcoming game releases. Experience with horror aesthetics is a plus.",
+      skills: ["Blender/Maya", "Substance Painter", "UV Mapping", "Low-poly Modeling", "Texturing"],
+      icon: Palette
+    },
+    {
+      title: "Game Designer",
+      type: "Contract",
+      location: "Remote", 
+      description: "Join our design team to craft engaging gameplay mechanics, level designs, and player experiences. Help shape the future of our game projects.",
+      skills: ["Game Design", "Level Design", "Documentation", "Balancing", "Player Psychology"],
+      icon: Gamepad2
+    },
+    {
+      title: "Sound Designer",
+      type: "Contract",
+      location: "Remote",
+      description: "Create immersive audio experiences for our games. From atmospheric soundscapes to dynamic music systems, help bring our worlds to life.",
+      skills: ["Audio Production", "FMOD/Wwise", "Music Composition", "Sound Effects", "Audio Implementation"],
+      icon: Settings
+    }
+  ];
+
+  return (
+    <WindowsXPPage title="Careers - LandSlide Studios" windowIcon="💼">
+      <div className="space-y-6">
+        <XPHeading level={1}>Join Our Team</XPHeading>
+        
+        <p className="text-gray-700 text-lg mb-6">
+          LandSlide Studios is always looking for talented contractors and collaborators to join our projects. 
+          We offer project-based opportunities for game developers, designers, artists, and other specialists 
+          who are passionate about creating exceptional gaming experiences.
+        </p>
+
+        {/* Current Openings */}
+        <XPHeading level={2}>Current Contractor Opportunities</XPHeading>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {contractorRoles.map((role, index) => (
+            <XPCard key={index} title={role.title} icon="💼">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4 text-sm">
+                  <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded font-medium">{role.type}</span>
+                  <div className="flex items-center space-x-1 text-gray-600">
+                    <MapPin className="h-4 w-4" />
+                    <span>{role.location}</span>
+                  </div>
+                </div>
+                
+                <p className="text-gray-700">{role.description}</p>
+                
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-2 flex items-center">
+                    <CheckCircle className="h-4 w-4 mr-2 text-green-500" />
+                    Required Skills
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {role.skills.map((skill, skillIndex) => (
+                      <span key={skillIndex} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-gray-300">
+                  <Link href="/contact">
+                    <XPButton variant="primary" className="w-full">
+                      <ArrowRight className="h-4 w-4 mr-2 inline" />
+                      Apply Now
+                    </XPButton>
+                  </Link>
+                </div>
+              </div>
+            </XPCard>
+          ))}
+        </div>
+
+        {/* Company Info */}
+        <XPCard title="About Working With Us" icon="🏢">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="font-semibold text-gray-800 mb-3">What We Offer</h4>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>• Competitive contractor rates</li>
+                <li>• Flexible remote work opportunities</li>
+                <li>• Creative input on projects</li>
+                <li>• Professional development opportunities</li>
+                <li>• Collaborative team environment</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-semibold text-gray-800 mb-3">What We Look For</h4>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li>• Strong portfolio demonstrating relevant skills</li>
+                <li>• Professional communication abilities</li>
+                <li>• Self-motivated and deadline-oriented</li>
+                <li>• Experience with game development pipelines</li>
+                <li>• Passion for creating quality gaming experiences</li>
+              </ul>
+            </div>
+          </div>
+        </XPCard>
+
+        {/* Application Process */}
+        <XPCard title="How to Apply" icon="📝">
+          <div className="space-y-4">
+            <p className="text-gray-700">
+              Ready to join our team? We'd love to see your work and discuss potential opportunities.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="text-2xl mb-2">📧</div>
+                <h4 className="font-semibold text-gray-800 mb-2">Submit Portfolio</h4>
+                <p className="text-sm text-gray-600">
+                  Send your portfolio and resume through our contact form.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl mb-2">💬</div>
+                <h4 className="font-semibold text-gray-800 mb-2">Interview Process</h4>
+                <p className="text-sm text-gray-600">
+                  Brief discussion about your experience and project fit.
+                </p>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl mb-2">🚀</div>
+                <h4 className="font-semibold text-gray-800 mb-2">Start Project</h4>
+                <p className="text-sm text-gray-600">
+                  Begin working on exciting game development projects.
+                </p>
+              </div>
+            </div>
+          </div>
+        </XPCard>
+
+        {/* Call to Action */}
+        <div className="text-center pt-6">
+          <div className="space-y-4">
+            <p className="text-gray-700 text-lg">
+              Ready to join our team? We'd love to see your work and discuss potential opportunities.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
+                <XPButton variant="primary">
+                  <Users className="h-4 w-4 mr-2 inline" />
+                  Apply Now
+                </XPButton>
+              </Link>
+              <Link href="/games">
+                <XPButton variant="default">
+                  <Gamepad2 className="h-4 w-4 mr-2 inline" />
+                  View Our Portfolio
+                </XPButton>
+              </Link>
+              <Link href="/blog">
+                <XPButton variant="default">
+                  <Heart className="h-4 w-4 mr-2 inline" />
+                  Read Our Blog
+                </XPButton>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </WindowsXPPage>
+  );
+}
